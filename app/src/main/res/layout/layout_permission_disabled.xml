@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/item_text_color"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/ic_photo_camera"
+        tools:ignore="contentDescription" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtCreatePhoto"
+        style="@style/TextStyleMain"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        tools:text="@string/txt_create_photo"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtAllowdCamera"
+        style="@style/TextStyleMain"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        tools:text="@string/txt_photo_permission"
+        android:textColor="@color/details_text" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonGiveCameraPermission"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_enabled_rounded_shape"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="@string/txt_give_camera_permission"
+        android:textColor="@color/white" />
+
+</LinearLayout>

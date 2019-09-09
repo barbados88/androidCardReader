@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: net.sf.scuba:scuba-smartcards:0.0.18@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.scuba/scuba-smartcards/0.0.18/21216f7b36fe7cf2dd3baf7effa5f2c988cdf58/scuba-smartcards-0.0.18.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.scuba/scuba-smartcards/0.0.18/3f6af3b213fdb9c91cd20711f98c29957dcff231/scuba-smartcards-0.0.18-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

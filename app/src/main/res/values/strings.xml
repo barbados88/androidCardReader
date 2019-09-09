@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ID Scanner</string>
+    <string name="title_activity_splash"> </string>
+    <string name="title_activity_scanner">ScannerActivity</string>
+
+    <!--scanner-->
+
+    <string name="text_scan_hint">Наведите сканнер\nна ID-карту</string>
+    <string name="qr_scanner">ID сканер</string>
+    <string name="scan_qr_code">Сканировать ID-карту</string>
+    <string name="camera_permission_reason">Разрешите доступ к \"Камере\" Это позволит Вам сканировать ID-карту в приложении \"ID SCANNER\"</string>
+    <string name="qr_scan_hint">Наведите сканнер на ID-карту</string>
+    <string name="qr_camera_permission">Для того чтобы сделать фото, необходимо принять разрешения в настройках приложения</string>
+    <string name="qr_unknown_code">Ошибка сканирования карты</string>
+    <string name="txt_create_photo">Сделать фото</string>
+    <string name="txt_photo_permission">Разрешите доступ к "Камере". Это позволит Вам сделать фото.</string>
+    <string name="txt_give_camera_permission">Разрешить доступ к камере</string>
+    <string name="qr_code_scan">Отсканировать ID-карту</string>
+    <string name="qr_code_generated_description">Дайте отсканировать ID-карту, чтобы поделиться информацией о Вашем профиле</string>
+
+</resources>

@@ -1,0 +1,103 @@
+<resources>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.AppThemeLight" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/very_light_gray</item>
+        <item name="android:statusBarColor">@color/very_light_gray</item>
+        <item name="android:textColorPrimary">@color/light_style_title_color</item>
+        <item name="colorControlNormal">@color/details_text</item>
+        <item name="colorControlActivated">@color/recent_color</item>
+        <item name="colorControlHighlight">@color/recent_color</item>
+    </style>
+
+    <style name="AppTheme.Dark" parent="AppTheme">
+        <item name="colorPrimary">@color/color_scan_primary</item>
+        <item name="colorPrimaryDark">@color/color_scan_primary_dark</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <item name="homeAsUpIndicator">@drawable/ic_close_white</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.ThemeTransparentStatusBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/very_light_gray</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
+    <style name="StyleEditText" parent="TextAppearance.AppCompat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">@color/details_text</item>
+        <item name="android:imeOptions">actionDone</item>
+    </style>
+
+    <style name="TextInputLayoutAppearance" parent="Widget.Design.TextInputLayout">
+        <item name="errorTextAppearance">@style/StyleInputLayoutError</item>
+        <item name="android:textColorHint">@color/hint_color</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+    </style>
+
+    <style name="StyleInputLayout" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@color/recent_color</item>
+        <item name="android:textCursorDrawable">@color/recent_color</item>
+    </style>
+
+    <style name="StyleInputLayoutError" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textColor">@color/error_color</item>
+    </style>
+
+    <style name="BottomButton" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:enabled">false</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily">@string/medium</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/bottom_button_selector</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+    </style>
+
+    <style name="BottomNavigationView" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/light_style_title_color</item>
+    </style>
+
+    <style name="BottomNavigationView.Active" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="TextStyleMain">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+</resources>
