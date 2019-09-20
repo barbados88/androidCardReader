@@ -3,7 +3,9 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jmrtd/jmrtd/0.7.12/33506ce50c5f3019899c5b02227fb9f982ae3d9e/jmrtd-0.7.12.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jmrtd/jmrtd/0.7.12/76fdc7be07aab7086cfe29681b5ce57d460997d0/jmrtd-0.7.12-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jmrtd/jmrtd/0.7.12/93d0837f074b5d45898d8911b2622406db7eebad/jmrtd-0.7.12-sources.jar!/" />
     </SOURCES>

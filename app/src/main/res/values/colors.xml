@@ -18,6 +18,9 @@
     <color name="item_text_color">#60696a</color>
     <color name="color_scan_primary">#464646</color>
     <color name="color_scan_primary_dark">#353333</color>
+    <color name="color_green">#00FF00</color>
+    <color name="black">#000000</color>
+    <color name="splash">#0C011D</color>
 </resources>
 
 <!--transparancy codes-->

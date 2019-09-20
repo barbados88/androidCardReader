@@ -4,7 +4,6 @@
     package="com.abank.IDCard"
     tools:ignore="GoogleAppIndexingWarning">
 
-    <uses-feature android:name="android.permission.camera2" android:required="true"/>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -12,6 +11,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-feature android:name="android.permission.camera2" android:required="true"/>
+    <uses-feature android:name="android.hardware.nfc" android:required="true" />
 
     <application
         android:name=".App"
@@ -33,9 +35,27 @@
         </activity>
         <activity
             android:name=".presentation.activity.scan.ScannerActivity"
-            android:theme="@style/AppTheme.Dark">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".presentation.activity.scan.NFCReaderActivity"
+            android:theme="@style/AppTheme.Dark"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+            </intent-filter>
 
+            <meta-data
+                android:name="android.nfc.action.TECH_DISCOVERED"
+                android:resource="@xml/nfc_tech_filter" />
+        </activity>
+        <activity
+            android:name=".presentation.activity.scan.ContainerActivity"
+            android:theme="@style/AppTheme.Dark"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="a48c731393ac70de078dd8d9127c9ebe9be49d5e" />

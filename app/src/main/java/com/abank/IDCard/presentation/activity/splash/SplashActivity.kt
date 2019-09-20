@@ -2,7 +2,7 @@ package com.abank.IDCard.presentation.activity.splash
 
 import android.content.Intent
 import android.os.Bundle
-import com.abank.IDCard.presentation.activity.scan.ScannerActivity
+import com.abank.IDCard.presentation.activity.scan.ContainerActivity
 import com.abank.IDCard.presentation.base.BaseActivity
 
 class SplashActivity : BaseActivity() {
@@ -20,7 +20,7 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun scannerActivity() {
-        val intent = Intent(this, ScannerActivity::class.java)
+        val intent = Intent(this, ContainerActivity::class.java)
         startActivity(intent)
     }
 }

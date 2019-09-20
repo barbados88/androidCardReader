@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.os.Vibrator
 import android.view.View
@@ -12,6 +13,11 @@ import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
+
+inline fun <reified T: Activity> Activity.myStartActivityForResult(requestCode: Int) {
+    val intent = Intent(this, T::class.java)
+    startActivityForResult(intent, requestCode)
+}
 
 fun Activity.hideKeyboardEx() {
     val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -35,11 +41,6 @@ inline fun Activity.showSnack(message: String, isLong: Boolean = false, f: Snack
 }
 
 fun Context.getColorEx(@ColorRes colorId: Int) = ContextCompat.getColor(this, colorId)
-
-fun Activity.copyToClipBoard(text: String, label: String = "simpleLabel") {
-    val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-    clipboard.primaryClip = ClipData.newPlainText(label, text)
-}
 
 inline fun Context.isNetworkConnected(f: (Boolean) -> Unit) {
     val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

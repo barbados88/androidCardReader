@@ -21,17 +21,16 @@ inline fun <reified T : Any> Context.getShared(key: String, defValue: T, crossin
 }
 
 inline fun <reified T : Any> Context.getCurrentValue(key: String, defValue: T): T {
-    val value: Any = getPrefs().run {
+    getPrefs().run {
         when (defValue) {
-            is Boolean -> getBoolean(key, defValue)
-            is Long -> getLong(key, defValue)
-            is Int -> getInt(key, defValue)
-            is String -> getString(key, defValue)
-            is Float -> getFloat(key, defValue)
+            is Boolean -> return getBoolean(key, defValue) as T
+            is Long -> return getLong(key, defValue) as T
+            is Int -> return getInt(key, defValue) as T
+            is String -> return getString(key, defValue) as T
+            is Float -> return getFloat(key, defValue) as T
             else -> throw Exception("Cannot cast to any type")
         }
     }
-    return value as T
 }
 
 inline fun <reified T : Any> Context.setShared(key: String, newValue: T) {

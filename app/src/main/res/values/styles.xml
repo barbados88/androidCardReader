@@ -20,7 +20,7 @@
         <item name="colorControlHighlight">@color/recent_color</item>
     </style>
 
-    <style name="AppTheme.Dark" parent="AppTheme">
+    <style name="AppTheme.Dark" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/color_scan_primary</item>
         <item name="colorPrimaryDark">@color/color_scan_primary_dark</item>
         <item name="actionMenuTextColor">@color/white</item>
@@ -98,6 +98,31 @@
         <item name="android:textColor">@color/colorAccent</item>
         <item name="android:letterSpacing">-0.02</item>
         <item name="android:gravity">center_horizontal</item>
+    </style>
+
+
+
+    <style name="CardViewStyle">
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardCornerRadius">0dp</item>
+        <item name="android:layout_marginLeft">@dimen/margin_none</item>
+        <item name="android:layout_marginRight">@dimen/margin_none</item>
+        <item name="android:elevation">2dp</item>
+    </style>
+
+    <style name="Text">
+
+    </style>
+
+    <style name="Text.SubHead">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Body3">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textColor">@color/light_style_title_color</item>
+        <item name="android:lineSpacingExtra">0sp</item>
     </style>
 
 </resources>

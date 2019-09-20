@@ -1,10 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.2.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e27465afc106325589b7b010f20ecbcf/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e27465afc106325589b7b010f20ecbcf/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/28e5af0b101912d3c39899fd9c184416/keyboardvisibilityevent-2.2.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/28e5af0b101912d3c39899fd9c184416/keyboardvisibilityevent-2.2.1/res" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.yslibrary.keyboardvisibilityevent/keyboardvisibilityevent/2.2.1/afc00f0c06e7fd1f4d07fff17041d32ebab2e0c2/keyboardvisibilityevent-2.2.1-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.yslibrary.keyboardvisibilityevent/keyboardvisibilityevent/2.2.1/68388efe33710ab5ffaf9b2b74ac7de746aad94d/keyboardvisibilityevent-2.2.1-sources.jar!/" />
     </SOURCES>
