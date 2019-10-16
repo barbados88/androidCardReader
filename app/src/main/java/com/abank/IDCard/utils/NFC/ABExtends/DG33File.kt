@@ -21,7 +21,7 @@ class DG33File(inputStream: InputStream): DataGroup(EF_DG33_TAG, inputStream) {
     }
 
     override fun getTag(): Int {
-        return EF_DG32_TAG
+        return EF_DG33_TAG
     }
 
     override fun toString(): String {

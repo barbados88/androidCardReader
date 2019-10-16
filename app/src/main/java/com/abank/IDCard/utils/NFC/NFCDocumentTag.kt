@@ -38,6 +38,7 @@ class NFCDocumentTag {
                 var is1: InputStream? = null
                 var is11: InputStream? = null
                 var is32: InputStream? = null
+                var is33: InputStream? = null
                 try {
                     is1 = ps.getInputStream(PassportService.EF_DG1)
                     saveDG1To(passport, ABLDSFileUtil.get1File(is1).mrzInfo)
@@ -45,6 +46,8 @@ class NFCDocumentTag {
                     saveDG11To(passport, ABLDSFileUtil.get11File(is11))
                     is32 = ps.getInputStream(ABPassportService.EF_DG32)
                     saveDG32To(passport, ABLDSFileUtil.get32File(is32))
+                    is33 = ps.getInputStream(ABPassportService.EF_DG33)
+                    saveDG33To(passport, ABLDSFileUtil.get33File(is33))
                 } catch (ex: Exception) {
                     cardServiceException = ex
                     print(ex.localizedMessage)
@@ -122,7 +125,11 @@ class NFCDocumentTag {
     }
 
     private fun saveDG32To(passport: Passport, dg32: DG32File) {
-        passport.registrationInfo = dg32.getregistrationInfo()
+        passport.registrationInfo = dg32.getRegistrationInfo()
+    }
+
+    private fun saveDG33To(passport: Passport, dg33: DG33File) {
+        passport.marriageInfo = dg33.getMarriageInfo()
     }
 
     data class PassportDTO(val passport: Passport? = null, val cardServiceException: Exception? = null)

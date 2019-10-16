@@ -16,7 +16,7 @@ class DG32File(inputStream: InputStream): DataGroup(EF_DG32_TAG, inputStream) {
 
     private var registration: String? = null
 
-    fun getregistrationInfo(): String {
+    fun getRegistrationInfo(): String {
         return registration ?: "Нет данных"
     }
 

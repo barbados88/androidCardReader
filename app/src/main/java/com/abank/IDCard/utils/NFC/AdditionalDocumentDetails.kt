@@ -18,12 +18,7 @@ class AdditionalDocumentDetails : Parcelable {
     var taxOrExitRequirements: String? = null
     var tag: Int = 0
     var tagPresenceList: List<Int>? = null
-
-
-    constructor() {
-        namesOfOtherPersons = ArrayList()
-        tagPresenceList = ArrayList()
-    }
+    
 
     constructor(`in`: Parcel) {
 

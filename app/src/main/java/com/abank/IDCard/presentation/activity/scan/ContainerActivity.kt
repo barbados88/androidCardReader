@@ -2,10 +2,14 @@ package com.abank.IDCard.presentation.activity.scan
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.EditText
 import com.abank.IDCard.R
 import com.abank.IDCard.presentation.base.BaseActivity
 import com.abank.IDCard.presentation.fragment.IntentData
+import com.abank.IDCard.utils.Extensions.applyIoSchedulers
 import com.abank.IDCard.utils.Extensions.myStartActivityForResult
+import com.abank.IDCard.utils.Extensions.textObserver
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.activity_container.*
 import net.sf.scuba.data.Gender
 import org.jetbrains.anko.startActivity
@@ -21,6 +25,7 @@ class ContainerActivity: BaseActivity() {
         const val RECOGNIZED_TEXT = "recognized_text"
     }
 
+    private lateinit var inputs: Array<TextInputLayout>
     private var mrzInfo: MRZInfo = MRZInfo("P",
             "ESP",
             "DUMMY",
@@ -37,6 +42,7 @@ class ContainerActivity: BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_container)
         addClickListeners()
+        listenToTextChanges()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -59,6 +65,21 @@ class ContainerActivity: BaseActivity() {
         }
     }
 
+    private fun listenToTextChanges() {
+        inputs = arrayOf(documentInputLayout, dateInputLayout, expireInputLayout)
+        inputs.forEach {
+            val layout = it
+            val editText = it.editText
+            editText?.let {
+                editText.textObserver()
+                        .applyIoSchedulers()
+                        .subscribe {
+                            layout.error = if (it.isEmpty()) getString(R.string.error_empty_text) else null
+                        }
+            }
+        }
+    }
+
     private fun checkData(intent: Intent?) {
         if (intent == null || intent.extras == null) return
         val text = intent.getStringExtra(RECOGNIZED_TEXT)
@@ -71,12 +92,24 @@ class ContainerActivity: BaseActivity() {
     }
 
     private fun onPassportRead() {
+        if (!allFieldsFilled()) return
         mrzInfo.documentNumber = documentInputLayout.editText?.text.toString()
         mrzInfo.dateOfBirth = dateInputLayout.editText?.text.toString()
         mrzInfo.dateOfExpiry = expireInputLayout.editText?.text.toString()
         val intent = Intent(this, NFCReaderActivity::class.java)
         intent.putExtra(IntentData.KEY_MRZ_INFO, mrzInfo)
         startActivityForResult(intent, REQUEST_NFC)
+    }
+
+    private fun allFieldsFilled(): Boolean {
+        var allValid = true
+        inputs.forEach {
+            if (it.editText?.text.isNullOrEmpty()) {
+                allValid = false
+                it.error = getString(R.string.error_empty_text)
+            }
+        }
+        return allValid
     }
 
 }

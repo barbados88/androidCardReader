@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#0D9FB4</color>
+    <color name="colorPrimary">#BC75ED</color>
     <color name="inActive">#A7B2B4</color>
-    <color name="colorPrimaryDark">#0D9FB4</color>
-    <color name="colorAccent">#0D9FB4</color>
-    <color name="colorRecent">#02b5b2</color>
-    <color name="recent_color">#16A4AF</color>
+    <color name="colorPrimaryDark">#BC75ED</color>
+    <color name="colorAccent">#BC75ED</color>
     <color name="white">#FFFFFF</color>
     <color name="very_light_gray">#F7F7F7</color>
     <color name="light_style_title_color">#4A4A4A</color>
@@ -14,7 +12,6 @@
     <color name="transparent">#00000000</color>
     <color name="error_color">#ee5c5c</color>
     <color name="disabled_button_color">#adc1cf</color>
-    <color name="enabled_button_color">#17a4af</color>
     <color name="item_text_color">#60696a</color>
     <color name="color_scan_primary">#464646</color>
     <color name="color_scan_primary_dark">#353333</color>

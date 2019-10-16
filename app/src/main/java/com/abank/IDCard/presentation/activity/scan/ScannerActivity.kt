@@ -53,6 +53,10 @@ class ScannerActivity: BaseActivity(), SurfaceHolder.Callback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scanner)
         mCamera = findViewById(R.id.camera_preview)
+        Handler().postDelayed( {startSettings() }, 100)
+    }
+
+    private fun startSettings() {
         initViews()
         checkPermissions()
     }
@@ -147,7 +151,7 @@ class ScannerActivity: BaseActivity(), SurfaceHolder.Callback {
                                 stringBuilder.append(item.value)
                             }
                         }
-                        val recognized = stringBuilder.toString()
+                        val recognized = stringBuilder.toString().replace(" ", "")
                         val regex = "[A-Z]{1,}[0-9]{23}.*\\n[0-9]{7}.[0-9]{7}[A-Z]{3}.*\\n[A-Z]{1,}<<[A-Z]{1,}.*".toRegex()
                         if (recognized.matches(regex)) {
                             recognizedTextView.text = recognized

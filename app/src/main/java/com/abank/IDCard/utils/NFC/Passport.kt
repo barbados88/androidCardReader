@@ -8,7 +8,6 @@ import java.util.ArrayList
 
 class Passport : Parcelable {
 
-    var sodFile: SODFile? = null
     var face: Bitmap? = null
     var portrait: Bitmap? = null
     var signature: Bitmap? = null
@@ -16,14 +15,10 @@ class Passport : Parcelable {
     var personDetails: PersonDetails? = null
     var additionalPersonDetails: AdditionalPersonDetails? = null
     var additionalDocumentDetails: AdditionalDocumentDetails? = null
-    var featureStatus: FeatureStatus? = null
-    var verificationStatus: VerificationStatus? = null
     var registrationInfo: String? = null
     var marriageInfo: String? = null
 
     constructor(`in`: Parcel) {
-
-
         fingerprints = ArrayList()
         this.face = if (`in`.readInt() == 1) `in`.readParcelable(Bitmap::class.java.classLoader) else null
         this.portrait = if (`in`.readInt() == 1) `in`.readParcelable(Bitmap::class.java.classLoader) else null
@@ -36,28 +31,10 @@ class Passport : Parcelable {
 
         this.signature = if (`in`.readInt() == 1) `in`.readParcelable(Bitmap::class.java.classLoader) else null
         this.additionalDocumentDetails = if (`in`.readInt() == 1) `in`.readParcelable(AdditionalDocumentDetails::class.java.classLoader) else null
-        if (`in`.readInt() == 1) {
-            sodFile = `in`.readSerializable() as SODFile
-        }
-
-        if (`in`.readInt() == 1) {
-            featureStatus = `in`.readParcelable(FeatureStatus::class.java.classLoader)
-        }
-
-        if (`in`.readInt() == 1) {
-            featureStatus = `in`.readParcelable(FeatureStatus::class.java.classLoader)
-        }
-
-        if (`in`.readInt() == 1) {
-            verificationStatus = `in`.readParcelable(VerificationStatus::class.java.classLoader)
-        }
-
     }
 
     constructor() {
         fingerprints = ArrayList()
-        featureStatus = FeatureStatus()
-        verificationStatus = VerificationStatus()
     }
 
     override fun describeContents(): Int {
@@ -100,21 +77,6 @@ class Passport : Parcelable {
             dest.writeParcelable(additionalDocumentDetails, flags)
         }
 
-        dest.writeInt(if (sodFile != null) 1 else 0)
-        if (sodFile != null) {
-            dest.writeSerializable(sodFile)
-        }
-
-        dest.writeInt(if (featureStatus != null) 1 else 0)
-        if (featureStatus != null) {
-            dest.writeParcelable(featureStatus, flags)
-        }
-
-        dest.writeInt(if (verificationStatus != null) 1 else 0)
-        if (verificationStatus != null) {
-            dest.writeParcelable(verificationStatus, flags)
-        }
-
     }
 
     companion object {
@@ -130,4 +92,5 @@ class Passport : Parcelable {
             }
         }
     }
+
 }

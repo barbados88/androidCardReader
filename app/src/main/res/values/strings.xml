@@ -26,6 +26,7 @@
     <string name="expiration_hint">Время действия(yymmdd)</string>
     <string name="date_hint">Дата рождения(yymmdd)</string>
     <string name="read_nfc">Считать NFC</string>
+    <string name="error_empty_text">Поле не может быть пустым</string>
 
     <!--    nfc-->
     <string name="nfc_title">Put your phone over your passport and don\'t move it</string>
