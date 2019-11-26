@@ -1,4 +1,4 @@
-package com.abank.IDCard.utils.NFC
+package com.abank.idcard.utils.NFC
 
 import android.os.Parcel
 import android.os.Parcelable

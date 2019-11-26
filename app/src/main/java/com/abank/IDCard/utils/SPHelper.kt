@@ -1,4 +1,4 @@
-package com.abank.IDCard.utils
+package com.abank.idcard.utils
 
 import android.content.Context
 import android.content.SharedPreferences

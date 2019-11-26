@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ID Scanner</string>
+    <string name="app_name">ID Scanner New</string>
     <string name="title_activity_splash"> </string>
     <string name="title_activity_scanner">ScannerActivity</string>
 
@@ -25,16 +25,17 @@
     <string name="document_hint">Номер документа</string>
     <string name="expiration_hint">Время действия(yymmdd)</string>
     <string name="date_hint">Дата рождения(yymmdd)</string>
-    <string name="read_nfc">Считать NFC</string>
+    <string name="read_nfc">Считать данные с помощью NFC</string>
     <string name="error_empty_text">Поле не может быть пустым</string>
 
     <!--    nfc-->
-    <string name="nfc_title">Put your phone over your passport and don\'t move it</string>
+    <string name="nfc_title">Положите устройство поверх паспорта и не двигайте его</string>
     <string name="warning_authentication_failed">Authentication has failed! Please try to scan the document again or introduce the data manually.</string>
+    <string name="error_reading_nfc">При чтении данных возникла ошибка, попробуйте еще раз</string>
     <string name="warning_cla_not_supported">Impossible to read the document. Passport doesn\'t support CLA .</string>
-    <string name="doc_number">Doc Number: %1s</string>
-    <string name="doc_dob">Date of Birth: %1s</string>
-    <string name="doc_expiry">Expiry Date: %1s</string>
+    <string name="doc_number">Номер документа: %1s</string>
+    <string name="doc_dob">Дата рождения: %1s</string>
+    <string name="doc_expiry">Дата окончания: %1s</string>
     <string name="warning_no_nfc">There is no NFC available</string>
     <string name="warning_enable_nfc">You need to enable NFC</string>
 
@@ -100,5 +101,36 @@
     <string name="label_certificate_subject">Subject</string>
     <string name="label_certificate_valid_from">Valid from</string>
     <string name="label_certificate_valid_to">Valid to</string>
+
+<!--    auth activity-->
+
+    <string name="bank_name">А-Банк</string>
+    <string name="login_placeholder">Номер телефона</string>
+    <string name="password_placeholder">Пароль</string>
+    <string name="enter_button">Войти</string>
+    <string name="unknown_server_error">Неизвестная ошибка</string>
+
+<!--    otp activity-->
+
+    <string name="otp_hint">1234</string>
+    <string name="enter_code_from_sms">Введите код из смс</string>
+
+<!--    select activity-->
+
+    <string name="select_header_title">Выберите заявку на идентификацию клиента</string>
+    <string name="bottom_dialog_logout">Выйти</string>
+    <string name="bottom_dialog_cancel">Отмена</string>
+    <string name="bottom_dialog_title">Выберите действие</string>
+
+<!--    passport details fragment-->
+
+    <string name="success_read_title">Информация была считана и отправлена на сервер</string>
+    <string name="success_read_description">Для продолжения работы вернитесь к заявке на рабочем столе</string>
+    <string name="button_back_title">Вернуться к выбору</string>
+
+    <string name="transition_button">buttonTransition</string>
+    <string name="transition_title">titleTransition</string>
+    <string name="transition_logo">logoTransition</string>
+    <string name="transition_inputs">inputsTransition</string>
 
 </resources>

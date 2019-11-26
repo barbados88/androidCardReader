@@ -1,12 +1,25 @@
-package com.abank.IDCard.data.repository.server
+package com.abank.idcard.data.repository.server
 
+import com.abank.idcard.data.repository.server.pojo.request.DataRequest
+import com.abank.idcard.data.repository.server.pojo.request.LoginRequest
+import com.abank.idcard.data.repository.server.pojo.request.LogoutRequest
+import com.abank.idcard.data.repository.server.pojo.request.OTPRequest
+import com.abank.idcard.data.repository.server.pojo.response.LoginResponse
+import com.abank.idcard.data.repository.server.pojo.response.TransactionsResponse
 import io.reactivex.ObservableTransformer
 import io.reactivex.Single
 import io.reactivex.SingleTransformer
 import io.reactivex.schedulers.Schedulers
-import okhttp3.ResponseBody
 
 // TODO: - create correct headers to use in requests
+
+const val AUTHORIZATION_TOKEN = "AUTHORIZATION_TOKEN"
+
+fun headers(): Map<String, String> {
+    val map = hashMapOf<String, String>()
+    //map["Authorization"] = "Bearer " + App.applicationContext.getShared("access_token", "")
+    return map
+}
 
 class ServerCommunicator(private val apiService: ApiService) {
 
@@ -28,10 +41,14 @@ class ServerCommunicator(private val apiService: ApiService) {
 
     // TODO: create correct response body object if needed
 
-    fun getCode(type: Int): Single<ResponseBody> = apiService.getCode(type)
+    fun auth(body: LoginRequest): Single<LoginResponse> = apiService.auth(body).compose(singleTransformer())
 
-    fun auth(): Single<ResponseBody> = apiService.auth().compose(singleTransformer())
+    fun checkOTP(body: OTPRequest): Single<LoginResponse> = apiService.checkOTP(body).compose(singleTransformer())
 
-    fun register(): Single<ResponseBody> = apiService.register().compose(singleTransformer())
+    fun logout(body: LogoutRequest): Single<LoginResponse> = apiService.logout(body).compose(singleTransformer())
+
+    fun getOrders(): Single<TransactionsResponse> = apiService.getOrders(headers()).compose(singleTransformer())
+
+    fun sendData(body: DataRequest): Single<LoginResponse> = apiService.sendData(headers(), body).compose(singleTransformer())
 
 }

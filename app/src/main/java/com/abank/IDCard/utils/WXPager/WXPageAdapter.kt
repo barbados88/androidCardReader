@@ -1,8 +1,8 @@
-package com.abank.IDCard.utils.WXPager
+package com.abank.idcard.utils.WXPager
 
 import android.content.Context
 import androidx.fragment.app.FragmentPagerAdapter
-import com.abank.IDCard.presentation.base.BaseFragment
+import com.abank.idcard.presentation.base.BaseFragment
 
 // USAGE:
 //enum class YourPager: PagerInterface {

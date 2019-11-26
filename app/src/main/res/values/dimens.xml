@@ -25,4 +25,9 @@
     <dimen name="input_label_padding_bottom">4dp</dimen>
     <dimen name="input_label_vertical_spacing">8dp</dimen>
     <dimen name="input_label_horizontal_spacing">4dp</dimen>
+
+    <dimen name="logo_size">150dp</dimen>
+    <dimen name="logo_size_otp">100dp</dimen>
+    <dimen name="auth_regular_margin">30dp</dimen>
+    <dimen name="text_big">40sp</dimen>
 </resources>

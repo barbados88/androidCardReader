@@ -1,4 +1,4 @@
-package com.abank.IDCard.presentation.fragment.bottomBar.firstTab
+package com.abank.idcard.presentation.fragment.bottomBar.firstTab
 
 import androidx.lifecycle.ViewModel;
 

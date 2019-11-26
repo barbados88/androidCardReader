@@ -1,9 +1,8 @@
-package com.abank.IDCard.presentation.fragment
+package com.abank.idcard.presentation.fragment
 
 import android.content.Intent
 import android.nfc.NfcAdapter
 import android.nfc.Tag
-import android.nfc.tech.IsoDep
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -15,28 +14,17 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.abank.IDCard.R
-import com.abank.IDCard.presentation.activity.scan.NFCReaderActivity
-import com.abank.IDCard.utils.NFC.ABExtends.ABLDSFileUtil
-import com.abank.IDCard.utils.NFC.ABExtends.ABPassportService
-import com.abank.IDCard.utils.NFC.ABExtends.ABPassportService.Companion.EF_DG32
-import com.abank.IDCard.utils.NFC.ABExtends.ABPassportService.Companion.EF_DG33
-import com.abank.IDCard.utils.NFC.ABExtends.DG32File
-import com.abank.IDCard.utils.NFC.ABExtends.EF_DG32_TAG
-import com.abank.IDCard.utils.NFC.NFCDocumentTag
-import com.abank.IDCard.utils.NFC.Passport
+import com.abank.idcard.R
+import com.abank.idcard.utils.NFC.NFCDocumentTag
+import com.abank.idcard.utils.NFC.Passport
 import io.reactivex.disposables.CompositeDisposable
-import net.sf.scuba.smartcards.CardService
 import net.sf.scuba.smartcards.CardServiceException
 import net.sf.scuba.smartcards.ISO7816
-import org.jmrtd.*
-import org.jmrtd.lds.CardAccessFile
-import org.jmrtd.lds.LDSFileUtil
-import org.jmrtd.lds.icao.DG11File
-import org.jmrtd.lds.icao.DG1File
+import org.jmrtd.AccessDeniedException
+import org.jmrtd.BACDeniedException
+import org.jmrtd.PACEException
 import org.jmrtd.lds.icao.MRZInfo
 import org.spongycastle.jce.provider.BouncyCastleProvider
-import java.io.InputStream
 import java.security.Security
 
 object IntentData {
@@ -44,6 +32,10 @@ object IntentData {
     val KEY_MRZ_INFO = "KEY_MRZ_INFO"
     val KEY_PASSPORT = "KEY_PASSPORT"
     val KEY_IMAGE = "KEY_IMAGE"
+    val OTP_TOKEN = "OTP_TOKEN"
+    val ORDER_ID = "ORDER_ID"
+    val TRACK = "TRACK"
+
 }
 
 class NfcFragment: Fragment() {
@@ -68,13 +60,10 @@ class NfcFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val arguments = arguments
-        if (arguments!!.containsKey(IntentData.KEY_MRZ_INFO)) mrzInfo = arguments.getSerializable(IntentData.KEY_MRZ_INFO) as MRZInfo
         textViewPassportNumber = view.findViewById(R.id.value_passport_number)
         textViewDateOfBirth = view.findViewById(R.id.value_DOB)
         textViewDateOfExpiry = view.findViewById(R.id.value_expiration_date)
         progressBar = view.findViewById(R.id.progressBar)
-        nfcFragmentListener = activity as NFCReaderActivity
     }
 
     fun startParseTag(intent: Intent) {
@@ -91,7 +80,6 @@ class NfcFragment: Fragment() {
 
             override fun onPassportRead(passport: Passport?) {
                 this@NfcFragment.onPassportRead(passport)
-
             }
 
             override fun onAccessDeniedException(exception: AccessDeniedException) {
@@ -207,9 +195,7 @@ class NfcFragment: Fragment() {
 
         fun newInstance(mrzInfo: MRZInfo): NfcFragment {
             val myFragment = NfcFragment()
-            val args = Bundle()
-            args.putSerializable(IntentData.KEY_MRZ_INFO, mrzInfo)
-            myFragment.arguments = args
+            myFragment.mrzInfo = mrzInfo
             return myFragment
         }
     }

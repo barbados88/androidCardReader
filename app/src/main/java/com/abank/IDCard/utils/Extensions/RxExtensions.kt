@@ -1,7 +1,5 @@
-package com.abank.IDCard.utils.Extensions
+package com.abank.idcard.utils.Extensions
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.LiveDataReactiveStreams
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Observable
@@ -15,12 +13,13 @@ inline fun <reified T> Observable<T>.applyIoSchedulers(): Observable<T> =
 inline fun <reified T> Single<T>.applyIoSchedulers(): Single<T> =
         this.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
 
+fun <T> Single<T>.applySchedulers(): Single<T> =
+        this.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+
 inline fun <reified T> Flowable<T>.applyIoSchedulers(): Flowable<T> =
         this.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
 
 inline fun Completable.applyIoSchedulers(): Completable =
         this.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
 
-fun <T> Flowable<T>.toLiveData(): LiveData<T> {
-    return LiveDataReactiveStreams.fromPublisher(this)
-}
+//

@@ -1,8 +1,6 @@
-package com.abank.IDCard.utils.Extensions
+package com.abank.idcard.utils.Extensions
 
 import android.app.Activity
-import android.content.ClipData
-import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager

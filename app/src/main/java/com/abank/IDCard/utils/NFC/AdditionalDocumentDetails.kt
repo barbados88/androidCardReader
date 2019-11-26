@@ -1,4 +1,4 @@
-package com.abank.IDCard.utils.NFC
+package com.abank.idcard.utils.NFC
 
 import android.graphics.Bitmap
 import android.os.Parcel

@@ -1,12 +1,11 @@
-package com.abank.IDCard.presentation.fragment
+package com.abank.idcard.presentation.fragment
 
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.abank.IDCard.R
-import com.abank.IDCard.presentation.activity.scan.NFCReaderActivity
+import com.abank.idcard.R
 import kotlinx.android.synthetic.main.fragment_photo.*
 
 class PassportPhotoFragment : androidx.fragment.app.Fragment() {
@@ -36,7 +35,7 @@ class PassportPhotoFragment : androidx.fragment.app.Fragment() {
         } else {
             //error
         }
-        passportPhotoFragmentListener = activity as NFCReaderActivity
+
     }
 
     override fun onResume() {

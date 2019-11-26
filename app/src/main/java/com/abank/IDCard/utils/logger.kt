@@ -1,7 +1,7 @@
-package com.abank.IDCard.utils
+package com.abank.idcard.utils
 
 import android.util.Log
-import com.abank.IDCard.BuildConfig
+import com.abank.idcard.BuildConfig
 
 private const val TAG = "Logger"
 

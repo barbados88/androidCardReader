@@ -1,12 +1,11 @@
-package com.abank.IDCard.presentation.fragment.bottomBar.firstTab
+package com.abank.idcard.presentation.fragment.bottomBar.firstTab
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
-import com.abank.IDCard.R
+import com.abank.idcard.R
 
 class FirstTabFragment : Fragment() {
 
@@ -23,7 +22,7 @@ class FirstTabFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(FirstTabViewModel::class.java)
+       // viewModel = ViewModelProviders.of(this).get(FirstTabViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

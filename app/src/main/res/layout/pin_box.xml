@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/input"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <com.abank.idcard.presentation.screens.auth.otp.widget.PinBoxDigitView
+        android:id="@+id/pbFirst"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+    <com.abank.idcard.presentation.screens.auth.otp.widget.PinBoxDigitView
+        android:id="@+id/pbSecond"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+    <com.abank.idcard.presentation.screens.auth.otp.widget.PinBoxDigitView
+        android:id="@+id/pbThird"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+    <com.abank.idcard.presentation.screens.auth.otp.widget.PinBoxDigitView
+        android:id="@+id/pbFourth"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</com.google.android.material.textfield.TextInputLayout>
+
+
+</merge>

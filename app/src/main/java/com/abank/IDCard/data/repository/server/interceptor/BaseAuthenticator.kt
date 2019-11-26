@@ -1,4 +1,4 @@
-package com.abank.IDCard.data.repository.server.interceptor
+package com.abank.idcard.data.repository.server.interceptor
 
 import okhttp3.Authenticator
 import okhttp3.Request

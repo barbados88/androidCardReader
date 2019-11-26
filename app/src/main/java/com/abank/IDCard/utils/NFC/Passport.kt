@@ -1,9 +1,8 @@
-package com.abank.IDCard.utils.NFC
+package com.abank.idcard.utils.NFC
 
 import android.graphics.Bitmap
 import android.os.Parcel
 import android.os.Parcelable
-import org.jmrtd.lds.SODFile
 import java.util.ArrayList
 
 class Passport : Parcelable {
@@ -16,7 +15,14 @@ class Passport : Parcelable {
     var additionalPersonDetails: AdditionalPersonDetails? = null
     var additionalDocumentDetails: AdditionalDocumentDetails? = null
     var registrationInfo: String? = null
+    var registrationDate: String? = null
     var marriageInfo: String? = null
+    var marriageDate: String? = null
+    var innInfo: String? = null
+    var documentDate: String? = null
+    var issueAuthority: String? = null
+    var orderId: String? = null
+    var track: String? = null
 
     constructor(`in`: Parcel) {
         fingerprints = ArrayList()

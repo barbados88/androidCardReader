@@ -1,4 +1,4 @@
-package com.abank.IDCard.utils
+package com.abank.idcard.utils
 
 import android.widget.EditText
 import com.google.android.material.textfield.TextInputLayout

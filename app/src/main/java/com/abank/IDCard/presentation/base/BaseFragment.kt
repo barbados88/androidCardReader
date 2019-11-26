@@ -1,4 +1,4 @@
-package com.abank.IDCard.presentation.base
+package com.abank.idcard.presentation.base
 
 import android.app.ActionBar
 import android.os.Bundle
@@ -11,12 +11,18 @@ import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.abank.IDCard.utils.Extensions.hideKeyboardEx
-import com.abank.IDCard.utils.Extensions.showSnack
-import com.abank.IDCard.utils.Extensions.showToast
-import com.abank.IDCard.utils.illegalState
+import com.abank.idcard.utils.Extensions.hideKeyboardEx
+import com.abank.idcard.utils.Extensions.showSnack
+import com.abank.idcard.utils.Extensions.showToast
+import com.abank.idcard.utils.illegalState
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 
 abstract class BaseFragment : Fragment() {
+
+    abstract val navigator: BaseNavigator
+
+    protected val compositeDisposable = CompositeDisposable()
 
     protected val appBar: ActionBar? = activity?.actionBar
 
@@ -42,6 +48,19 @@ abstract class BaseFragment : Fragment() {
         val view = inflater.inflate(getLayout(), container, false)
         return view
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        navigator.attachFragmentManager(fragmentManager)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        navigator.release()
+        compositeDisposable.dispose()
+    }
+
+    protected fun Disposable.addtoBag() = compositeDisposable.add(this)
 
     fun getColor(@ColorRes colorRes: Int) = context?.let { ContextCompat.getColor(it, colorRes) }
 

@@ -1,4 +1,4 @@
-package com.abank.IDCard.utils.Extensions
+package com.abank.idcard.utils.Extensions
 
 import android.app.Activity
 import android.content.Context
@@ -18,7 +18,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
-import com.abank.IDCard.R
+import com.abank.idcard.R
+import com.google.android.material.textfield.TextInputLayout
 import io.reactivex.Observable
 import java.util.concurrent.TimeUnit
 
@@ -105,4 +106,8 @@ fun TextInputEditText.textObserver(seconds: Long = 0): Observable<String> {
     }
 
     return if (seconds.toInt() == 0) textChangeObservable else textChangeObservable.debounce(seconds, TimeUnit.SECONDS)
+}
+
+fun TextInputLayout.getText(): String? {
+    return editText?.text.toString()
 }

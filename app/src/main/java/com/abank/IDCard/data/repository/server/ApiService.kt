@@ -1,20 +1,30 @@
-package com.abank.IDCard.data.repository.server
+package com.abank.idcard.data.repository.server
 
+import com.abank.idcard.data.repository.server.pojo.request.DataRequest
+import com.abank.idcard.data.repository.server.pojo.request.LoginRequest
+import com.abank.idcard.data.repository.server.pojo.request.LogoutRequest
+import com.abank.idcard.data.repository.server.pojo.request.OTPRequest
+import com.abank.idcard.data.repository.server.pojo.response.LoginResponse
+import com.abank.idcard.data.repository.server.pojo.response.TransactionsResponse
 import io.reactivex.Single
-import okhttp3.ResponseBody
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ApiService {
 
-    @GET("")
-    fun getCode(@Query("type") type: Int): Single<ResponseBody>
+    @POST("api/auth/login")
+    fun auth(@Body body: LoginRequest): Single<LoginResponse>
 
-    @POST("login/reg")
-    fun auth(): Single<ResponseBody>
+    @POST("api/auth/otp/verify")
+    fun checkOTP(@Body body: OTPRequest): Single<LoginResponse>
 
-    @GET("")
-    fun register(): Single<ResponseBody>
+    @POST("api/auth/LOGOUT")
+    fun logout(@Body body: LogoutRequest): Single<LoginResponse>
+
+    @GET("api/v1/list/requests")// /ab190291dvs
+    fun getOrders(@HeaderMap headers: Map<String, String>): Single<TransactionsResponse>
+
+    @POST("api/v1/id-card/send")
+    fun sendData(@HeaderMap headers: Map<String, String>,
+                 @Body body: DataRequest): Single<LoginResponse>
 
 }

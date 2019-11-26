@@ -1,28 +1,19 @@
-package com.abank.IDCard
+package com.abank.idcard
 
 import android.app.Application
-import android.content.Context
+import com.abank.idcard.presentation.di.navigatorModule
+import com.abank.idcard.presentation.di.viewModelModule
 import com.crashlytics.android.Crashlytics
-import com.abank.IDCard.koin.repositoryModule
-import com.abank.IDCard.koin.viewModelModule
+import com.example.data.di.dataModule
 import io.fabric.sdk.android.Fabric
 import org.koin.android.ext.android.startKoin
 
 class App : Application() {
 
-    init {
-        instance = this
-    }
-
-    companion object {
-        var instance: App? = null
-        val applicationContext : Context
-            get() = instance!!.applicationContext
-    }
-
     override fun onCreate() {
         super.onCreate()
         Fabric.with(this, Crashlytics())
-        startKoin(this, listOf(viewModelModule, repositoryModule))
+        startKoin(this, listOf(viewModelModule, navigatorModule, dataModule))
     }
+
 }

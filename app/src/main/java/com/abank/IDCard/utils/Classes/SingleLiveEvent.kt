@@ -1,4 +1,4 @@
-package com.abank.IDCard.utils.Classes
+package com.abank.idcard.utils.Classes
 
 import android.util.Log
 import androidx.annotation.MainThread

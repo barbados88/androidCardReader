@@ -1,4 +1,4 @@
-package com.abank.IDCard.utils.Extensions
+package com.abank.idcard.utils.Extensions
 
 import android.graphics.Color
 import android.graphics.Typeface
@@ -13,12 +13,30 @@ import android.util.Base64
 import java.security.MessageDigest
 import java.util.*
 
+enum class RegexValidation {
+
+    phone, password;
+
+    val regex: Regex
+    get() {
+        when(this) {
+            phone -> return "\\+[0-9]{12,17}".toRegex()
+            password -> return "\\S{5,}".toRegex()
+        }
+    }
+
+}
+
 @Suppress("DEPRECATION")
 fun String.fromHtml(): Spanned {
     return when {
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.N -> Html.fromHtml(this, Html.FROM_HTML_MODE_LEGACY)
         else -> Html.fromHtml(this)
     }
+}
+
+fun String.isValid(byRegex: RegexValidation): Boolean {
+    return this.matches(byRegex.regex)
 }
 
 fun String.toMd5(): String = hashWithAlgorithm("MD5")

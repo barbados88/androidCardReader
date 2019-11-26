@@ -1,8 +1,8 @@
-package com.abank.IDCard.utils.WXAdapter.Holders
+package com.abank.idcard.utils.WXAdapter.Holders
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.abank.IDCard.utils.NFC.Passport
+import com.abank.idcard.utils.NFC.Passport
 import kotlinx.android.synthetic.main.viewholder_passport_info.view.*
 
 enum class PassportInfo {

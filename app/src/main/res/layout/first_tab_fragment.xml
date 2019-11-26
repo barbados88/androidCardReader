@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.abank.IDCard.presentation.fragment.bottomBar.firstTab.FirstTabFragment">
+    tools:context="com.abank.idcard.presentation.fragment.bottomBar.firstTab.FirstTabFragment">
 
     <TextView
         android:layout_width="match_parent"

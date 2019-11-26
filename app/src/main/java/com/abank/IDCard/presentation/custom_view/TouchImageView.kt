@@ -1,4 +1,4 @@
-package com.abank.IDCard.presentation.custom_view
+package com.abank.idcard.presentation.custom_view
 
 /*
  * TouchImageView.java

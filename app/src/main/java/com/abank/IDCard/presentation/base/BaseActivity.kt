@@ -1,4 +1,4 @@
-package com.abank.IDCard.presentation.base
+package com.abank.idcard.presentation.base
 
 import androidx.appcompat.app.AppCompatActivity
 import io.reactivex.disposables.CompositeDisposable

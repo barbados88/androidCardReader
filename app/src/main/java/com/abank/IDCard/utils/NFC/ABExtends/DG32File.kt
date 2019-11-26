@@ -1,28 +1,29 @@
-package com.abank.IDCard.utils.NFC.ABExtends
+package com.abank.idcard.utils.NFC.ABExtends
 
 import net.sf.scuba.tlv.TLVInputStream
-import net.sf.scuba.tlv.TLVUtil
-import okio.Utf8
 import org.jmrtd.lds.DataGroup
-import java.io.ByteArrayInputStream
 import java.io.DataInputStream
 import java.io.InputStream
 import java.io.OutputStream
-import java.nio.charset.Charset
 
 const val EF_DG32_TAG = 0x7F20
 
 class DG32File(inputStream: InputStream): DataGroup(EF_DG32_TAG, inputStream) {
 
     private var registration: String? = null
+    private var regDate: String? = null
 
     fun getRegistrationInfo(): String {
         return registration ?: "Нет данных"
     }
 
+    fun getRegistrationDate(): String {
+        return regDate ?: "Нет данных"
+    }
+
     companion object {
         const val REGISTER_TAG = 0x04
-
+        const val REG_DATE_TAG = 0x5F26
     }
 
     override fun getTag(): Int {
@@ -30,7 +31,7 @@ class DG32File(inputStream: InputStream): DataGroup(EF_DG32_TAG, inputStream) {
     }
 
     override fun toString(): String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return "DG32File " + registration.toString().replace("\n".toRegex(), "").trim()
     }
 
     override fun equals(other: Any?): Boolean {
@@ -50,17 +51,20 @@ class DG32File(inputStream: InputStream): DataGroup(EF_DG32_TAG, inputStream) {
     override fun readContent(inputStream: InputStream?) {
         val tlvInputStream = if (inputStream is TLVInputStream) inputStream else TLVInputStream(inputStream)
         tlvInputStream.skipToTag(REGISTER_TAG)
-        val length = tlvInputStream.readLength()
-        readObject(tlvInputStream, length)
+        var length = tlvInputStream.readLength()
+        registration = readObject(tlvInputStream, length)
+        tlvInputStream.skipToTag(REG_DATE_TAG)
+        length = tlvInputStream.readLength()
+        regDate = readObject(tlvInputStream, length)
     }
 
     // MARK: - Helper methods
 
-    private fun readObject(stream: InputStream, length: Int) {
+    private fun readObject(stream: InputStream, length: Int): String {
         val dataIn = DataInputStream(stream)
         val data = ByteArray(length)
         dataIn.readFully(data)
-        registration = String(data).trim()
+        return String(data).trim()
     }
 
 }

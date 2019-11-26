@@ -91,6 +91,17 @@
         <item name="android:textColor">@color/colorAccent</item>
     </style>
 
+    <style name="PinBox">
+        <item name="android:gravity">center</item>
+        <item name="android:maxLength">1</item>
+        <item name="android:minEms">2</item>
+        <item name="android:inputType">number</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:textSize">@dimen/text_big</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
     <style name="TextStyleMain">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -100,6 +111,11 @@
         <item name="android:textColor">@color/colorAccent</item>
         <item name="android:letterSpacing">-0.02</item>
         <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="TextStyleMain.Title" parent="TextStyleMain">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="CardViewStyle">

@@ -1,0 +1,72 @@
+ext.deps = [:]
+def versions = [:]
+
+def deps = [:]
+
+//region Modules
+deps.data = project(':data')
+//endregion
+
+//region Build
+def build_versions = [:]
+build_versions.min_sdk = 24
+build_versions.target_sdk = 29
+build_versions.compile_sdk = 29
+build_versions.build_tools = "29.0.0"
+ext.build_versions = build_versions
+//endregion
+
+//region Retrofit
+versions.retrofit = "2.4.0"
+
+def retrofit = [:]
+retrofit.retrofit = "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+retrofit.adapterRx = "com.squareup.retrofit2:adapter-rxjava:$versions.retrofit"
+retrofit.gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+retrofit.adapter = 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+ext.retrofit = retrofit
+//endregion
+
+//region Glide
+def glide = [:]
+glide.glide = 'com.github.bumptech.glide:glide:4.9.0'
+ext.glide = glide
+//endregion
+
+//region Room
+versions.room = "2.2.0-alpha02"
+
+def room = [:]
+room.rxroom = "androidx.room:room-rxjava2:$versions.room"
+room.compiler = "androidx.room:room-compiler:$versions.room"
+ext.room = room
+//endregion
+
+//region Rx
+def rx = [:]
+rx.java = 'io.reactivex.rxjava2:rxkotlin:2.3.0'
+rx.android = 'io.reactivex.rxjava2:rxandroid:2.0.2'
+ext.rx = rx
+//endregion
+
+//region OkHttp
+def okhttp = [:]
+okhttp.logging = 'com.squareup.okhttp3:logging-interceptor:4.1.0'
+okhttp.gson = 'com.google.code.gson:gson:2.8.2'
+ext.okhttp = okhttp
+//endregion
+
+//region Koin
+versions.koin = "1.0.2"
+
+def koin = [:]
+koin.koin = "org.koin:koin-android:${versions.koin}"
+koin.viewmodel = "org.koin:koin-android-viewmodel:${versions.koin}"
+ext.koin = koin
+//endregion
+
+//region LastAdapter
+deps.lastadapter = 'com.github.nitrico.lastadapter:lastadapter:2.3.0'
+//endregion
+
+ext.deps = deps

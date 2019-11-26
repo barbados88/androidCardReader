@@ -1,4 +1,4 @@
-package com.abank.IDCard.utils.NFC.ABExtends
+package com.abank.idcard.utils.NFC.ABExtends
 
 import net.sf.scuba.tlv.TLVInputStream
 import org.jmrtd.lds.DataGroup
@@ -11,13 +11,19 @@ const val EF_DG33_TAG = 0x7F21
 class DG33File(inputStream: InputStream): DataGroup(EF_DG33_TAG, inputStream) {
 
     private var marriageInfo: String? = null
+    private var marDate: String? = null
 
     fun getMarriageInfo(): String {
         return marriageInfo ?: "Нет данных"
     }
 
+    fun getMarriageDate(): String {
+        return marDate ?: "Нет данных"
+    }
+
     companion object {
         const val MARRIAGE_TAG = 0x04
+        const val REG_DATE_TAG = 0x5F26
     }
 
     override fun getTag(): Int {
@@ -25,7 +31,7 @@ class DG33File(inputStream: InputStream): DataGroup(EF_DG33_TAG, inputStream) {
     }
 
     override fun toString(): String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return "DG33File " + marriageInfo.toString().replace("\n".toRegex(), "").trim()
     }
 
     override fun equals(other: Any?): Boolean {
@@ -45,17 +51,20 @@ class DG33File(inputStream: InputStream): DataGroup(EF_DG33_TAG, inputStream) {
     override fun readContent(inputStream: InputStream?) {
         val tlvInputStream = if (inputStream is TLVInputStream) inputStream else TLVInputStream(inputStream)
         tlvInputStream.skipToTag(MARRIAGE_TAG)
-        val length = tlvInputStream.readLength()
-        readObject(tlvInputStream, length)
+        var length = tlvInputStream.readLength()
+        marriageInfo = readObject(tlvInputStream, length)
+        tlvInputStream.skipToTag(REG_DATE_TAG)
+        length = tlvInputStream.readLength()
+        marDate = readObject(tlvInputStream, length)
     }
 
     // MARK: - Helper methods
 
-    private fun readObject(stream: InputStream, length: Int) {
+    private fun readObject(stream: InputStream, length: Int): String {
         val dataIn = DataInputStream(stream)
         val data = ByteArray(length)
         dataIn.readFully(data)
-        marriageInfo = String(data).trim()
+        return String(data).trim()
     }
 
 }

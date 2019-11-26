@@ -1,4 +1,4 @@
-package com.abank.IDCard.utils.Extensions
+package com.abank.idcard.utils.Extensions
 
 import android.view.View
 import android.widget.Toast
@@ -24,4 +24,20 @@ fun View.setNotDoubleClickListener(listener: View.OnClickListener) {
 
 fun View.isVisible(condition: Boolean) {
     visibility = if (condition) View.VISIBLE else View.GONE
+}
+
+fun View.visible() {
+    visibility = View.VISIBLE
+}
+
+fun View.gone() {
+    visibility = View.GONE
+}
+
+fun View.enable() {
+    isEnabled = true
+}
+
+fun View.disable() {
+    isEnabled = false
 }

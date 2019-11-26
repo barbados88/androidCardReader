@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/androidCardGit.iml" filepath="$PROJECT_DIR$/androidCardGit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/android-card-git.iml" filepath="$PROJECT_DIR$/.idea/android-card-git.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/data/data.iml" filepath="$PROJECT_DIR$/data/data.iml" />
     </modules>
   </component>
 </project>
